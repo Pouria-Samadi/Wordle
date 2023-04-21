@@ -10,7 +10,11 @@ function App() {
   const [board, setBoard] = useState(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
-  const [disabledLetters,setDisabledLetters]= useState([])
+  const [disabledLetters, setDisabledLetters] = useState([]);
+  const [gameOver, setGameOver] = useState({
+    gameOver: false,
+    guessedWord: false,
+  });
 
   const correctWord = "RIGHT";
 
@@ -48,8 +52,13 @@ function App() {
       alert("Word Not Found");
     }
 
-    if(currWord === correctWord)
-    alert("Gamed Ended")
+    if (currWord === correctWord) {
+      setGameOver({ gameOver: true, guessedWord: true });
+      return;
+    }
+    if (currAttempt.attempt === 5) {
+      setGameOver({ gameOver: true, guessedWord: false });
+    }
   };
 
   return (
@@ -67,7 +76,9 @@ function App() {
           correctWord,
           currAttempt,
           disabledLetters,
-          setDisabledLetters
+          setDisabledLetters,
+          gameOver,
+          setGameOver,
         }}
       >
         <div className="game">
