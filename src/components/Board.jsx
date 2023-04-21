@@ -1,10 +1,10 @@
-import Letter from './Letter';
+import Letter from "./Letter";
 
 const Board = () => {
   return (
-    <div className='board'>
-      <div className='row'>
-      <Letter letterPos={0} attemptVal={0} />
+    <div className="board">
+      <div className="row">
+        <Letter letterPos={0} attemptVal={0} />
         <Letter letterPos={1} attemptVal={0} />
         <Letter letterPos={2} attemptVal={0} />
         <Letter letterPos={3} attemptVal={0} />
@@ -45,8 +45,8 @@ const Board = () => {
         <Letter letterPos={3} attemptVal={5} />
         <Letter letterPos={4} attemptVal={5} />
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Board
+export default Board;

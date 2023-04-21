@@ -11,17 +11,16 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [disabledLetters, setDisabledLetters] = useState([]);
-  const [correctWord, setCorrectWord]= useState("")
+  const [correctWord, setCorrectWord] = useState("");
   const [gameOver, setGameOver] = useState({
     gameOver: false,
     guessedWord: false,
   });
-  
 
   useEffect(() => {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
-      setCorrectWord(words.todaysWork)
+      setCorrectWord(words.todaysWork);
     });
   }, []);
 
